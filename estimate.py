@@ -1,5 +1,26 @@
 import math
 import unittest
+def monte_carlo(n):
+  incircle=0
+  for i in range(0,n):
+   x=random.random()
+   y=random.random()
+   x2=pow(x,2)
+   y2=pow(y,2)
+   r=math.sqrt(x2+y2)
+   if r<1:
+    incircle=incircle+1
+  ratio=incircle/n
+  ans=ratio*4.0
+  return round(ans,10)
+def wallis(n):
+	s=1
+	for i in range(1,n+1):
+	 s=s* ((4* pow(i,2))/((4* pow(i,2))-1))
+	s2=2*s
+	return s2
+	
+
 
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
